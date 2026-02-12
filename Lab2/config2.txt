@@ -1,0 +1,14 @@
+FunctionNodes: add mul sin cos
+ConstantRange:
+PopulationSize: 500
+TournamentSize: 5
+CostEvaluations: 10000
+Elitism: 2
+CloneProbability: 0.3
+MutationProbability: 0.5
+CrossProbability: 0.2
+MaxTreeDepth: 5
+MaxTreeNodes: 25
+Problem: 03-GP-podaci/f2.txt
+
+x*y + sin(x+y)*cos(y)

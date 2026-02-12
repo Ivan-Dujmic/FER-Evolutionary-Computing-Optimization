@@ -1,0 +1,14 @@
+FunctionNodes: add mul sin
+ConstantRange:
+PopulationSize: 500
+TournamentSize: 3
+CostEvaluations: 5000
+Elitism: 2
+CloneProbability: 0.5
+MutationProbability: 0.4
+CrossProbability: 0.1
+MaxTreeDepth: 5
+MaxTreeNodes: 50
+Problem: 03-GP-podaci/f1.txt
+
+x + x*x*sin(x)

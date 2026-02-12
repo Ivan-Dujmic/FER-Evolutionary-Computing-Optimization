@@ -1,0 +1,5 @@
+problem=2
+populationSize=50
+mutationChance=0.25
+mutationStrength=0.2
+iterations=15000

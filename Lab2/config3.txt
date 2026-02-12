@@ -1,0 +1,14 @@
+FunctionNodes: add mul
+ConstantRange: 0 2
+PopulationSize: 500
+TournamentSize: 3
+CostEvaluations: 10000
+Elitism: 2
+CloneProbability: 0.3
+MutationProbability: 0.5
+CrossProbability: 0.2
+MaxTreeDepth: 4
+MaxTreeNodes: 20
+Problem: 03-GP-podaci/f3.txt
+
+1.3 + 0.5*x*x

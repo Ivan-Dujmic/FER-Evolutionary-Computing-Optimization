@@ -1,0 +1,9 @@
+DE/TARGET_TO_BEST/2/BIN
+CR=0.1
+F=0.1
+pop=10000
+calc=7000000
+initLower=-5
+initUpper=10
+
+// Optimal coefficients are [7, -3, 2, 1, -3, 3]

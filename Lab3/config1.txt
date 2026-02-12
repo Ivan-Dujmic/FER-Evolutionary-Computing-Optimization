@@ -1,0 +1,9 @@
+DE/RAND/4/EXP
+CR=0.2
+F=0.05
+pop=5000
+calc=5000000
+initLower=-5
+initUpper=10
+
+// Optimal coefficients are [7, -3, 2, 1, -3, 3]
