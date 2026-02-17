@@ -20,9 +20,9 @@ struct Particle {
 
     friend std::ostream& operator<<(std::ostream& os, const Particle& p) {
         os << "Particle(fitness=" << p.personalBestFitness << ", v=[";
-        for (size_t i = 0; i < p.position.size(); ++i) {
-            os << p.position[i];
-            if (i + 1 < p.position.size()) os << ", ";
+        for (size_t i = 0; i < p.personalBestPosition.size(); ++i) {
+            os << p.personalBestPosition[i];
+            if (i + 1 < p.personalBestPosition.size()) os << ", ";
         }
         os << "])";
         return os;

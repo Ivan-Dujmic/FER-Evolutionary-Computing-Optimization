@@ -30,8 +30,8 @@ bestFitness(std::numeric_limits<double>::infinity())
 
 Particle PSO::getBest() const {
     Particle best = Particle(this->system->getVectorSize());
-    best.localBestFitness = this->bestFitness;
-    best.localBestPosition = this->bestPosition;
+    best.personalBestFitness = this->bestFitness;
+    best.personalBestPosition = this->bestPosition;
     return best;
 }
 
