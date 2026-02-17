@@ -45,7 +45,7 @@ DE::DE(
     coefDist(0, system->getVectorSize() - 1),
     system(system),
     vectorSize(system->getVectorSize()),
-    population(populationSize, Unit(vectorSize))
+    population(populationSize, Unit(system->getVectorSize()))
     {}
 
 Unit DE::getBest() const {

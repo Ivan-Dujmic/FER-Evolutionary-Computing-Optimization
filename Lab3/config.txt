@@ -1,6 +1,7 @@
-DE/TARGET_TO_BEST/2/BIN
-CR=0.1
-F=0.1
+PSO/GLOBAL
+cognitive=1.8
+social=1.5
+inertia=0.8
 pop=10000
 calc=7000000
 initLower=-5
