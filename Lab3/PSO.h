@@ -40,7 +40,9 @@ class PSO {
         Neighborhood neighborhood;
         double cognitiveComponent;
         double socialComponent;
-        double inertia;
+        double maxInertia;
+        double minInertia;
+        std::size_t inertiaIters;
         std::size_t costCalculations;
 
         ISystem* system;
@@ -60,7 +62,9 @@ class PSO {
             Neighborhood neighborhood,
             double cognitiveComponent,
             double socialComponent,
-            double inertia,
+            double maxInertia,
+            double minInertia,
+            std::size_t inertiaIters,
             std::size_t costCalculations,
             double initPopBoundLower,
             double initPopBoundUpper,

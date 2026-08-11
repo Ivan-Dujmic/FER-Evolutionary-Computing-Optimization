@@ -1,7 +1,9 @@
 PSO/GLOBAL
 cognitive=1.8
 social=1.5
-inertia=0.8
+maxInertia=0.8
+minInertia=0.3
+inertiaIters=1400
 pop=500
 calc=1000000
 initLower=-10

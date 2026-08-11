@@ -72,7 +72,9 @@ int main() {
     Neighborhood neighborhood;
     double cognitiveComponent;
     double socialComponent;
-    double inertia;
+    double maxInertia;
+    double minInertia;
+    std::size_t inertiaIters;
 
     std::getline(configFile, line);
     std::vector<std::string> parts = split(line, '/');
@@ -121,7 +123,16 @@ int main() {
 
         std::getline(configFile, line);
         parts = split(line, '=');
-        inertia = std::stod(parts[1]);
+        maxInertia = std::stod(parts[1]);
+
+        std::getline(configFile, line);
+        parts = split(line, '=');
+        minInertia = std::stod(parts[1]);
+
+        std::getline(configFile, line);
+        parts = split(line, '=');
+        inertiaIters = std::stoi(parts[1]);
+
     }
     
 
@@ -148,7 +159,7 @@ int main() {
         de.train(true);
         std::cout << "Final best: " << de.getBest() << '\n';
     } else if (algorithm == "PSO") {
-        PSO pso = PSO(populationSize, neighborhood, cognitiveComponent, socialComponent, inertia, costCalculations, initPopBoundLower, initPopBoundUpper, &system);
+        PSO pso = PSO(populationSize, neighborhood, cognitiveComponent, socialComponent, maxInertia, minInertia, inertiaIters, costCalculations, initPopBoundLower, initPopBoundUpper, &system);
         pso.initialize();
         std::cout << "Initial best: " << pso.getBest() << '\n';
         pso.train(true);

@@ -6,7 +6,9 @@ PSO::PSO(
     Neighborhood neighborhood,
     double cognitiveComponent,
     double socialComponent,
-    double inertia,
+    double maxInertia,
+    double minInertia,
+    std::size_t inertiaIters,
     std::size_t costCalculations,
     double initPopBoundLower,
     double initPopBoundUpper,
@@ -16,7 +18,9 @@ populationSize(populationSize),
 neighborhood(neighborhood),
 cognitiveComponent(cognitiveComponent),
 socialComponent(socialComponent),
-inertia(inertia),
+maxInertia(maxInertia),
+minInertia(minInertia),
+inertiaIters(inertiaIters),
 costCalculations(costCalculations),
 system(system),
 vectorSize(system->getVectorSize()),
@@ -88,14 +92,20 @@ void PSO::initialize() {
 
 void PSO::train(bool printNewBest) {
     std::size_t calculations = 0;
+    std::size_t iteration = 0;
+    double inertia;
     while (calculations < this->costCalculations) {
+        if (iteration <= this->inertiaIters) {
+            inertia = this->maxInertia - (iteration / (1.0 * inertiaIters)) * (maxInertia - minInertia);
+        }
+            
         for (Particle& p : this->population) {
             std::vector<double> localBest;
             if (this->neighborhood == Neighborhood::GLOBAL) localBest = this->bestPosition;
             else localBest = p.localBestPosition;
 
             for (std::size_t i = 0 ; i < this->vectorSize ; i++) {
-                p.velocity[i] = p.velocity[i] * this->inertia + 
+                p.velocity[i] = p.velocity[i] * inertia + 
                                 this->cognitiveComponent * this->probDist(this->rng) * (p.personalBestPosition[i] - p.position[i]) +
                                 this->socialComponent * this->probDist(this->rng) * (localBest[i] - p.position[i]);
             }
@@ -134,5 +144,9 @@ void PSO::train(bool printNewBest) {
                 }
             }
         }
+
+        iteration++;
     }
+
+    std::cout << "Iterations: " << iteration << '\n';
 }
